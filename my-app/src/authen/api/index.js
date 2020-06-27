@@ -1,4 +1,5 @@
 import axios from 'axios'
+axios.defaults.headers.common.authorization = `Bearer ${localStorage.getItem("token")}`;
 function login(data){
     //console.log("login...")
     // let data ={
@@ -13,4 +14,8 @@ function login(data){
 
 }
 
-export {login}
+function fetchStatistic(){
+    return axios.get("https://medical-backend.herokuapp.com/api/news/get-statistic")
+}
+
+export {login, fetchStatistic}
